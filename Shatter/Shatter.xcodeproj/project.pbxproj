@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85DD23EEB33A4C52BCE588E1 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5697B81D5F804290A0C04C82 /* GameViewModel.swift */; };
+		A5EB1049DD28421EBA224635 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA009FFBBAD479F9CB257BB /* SettingsViewModel.swift */; };
+		3540E728B275412FBF9C82CE /* GameScene+Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22537E952FE54D4D9AA89248 /* GameScene+Input.swift */; };
+		D0DA50BAD4CB410D8B8E447C /* GameScene+Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423CBE109D349EABA5CD7B9 /* GameScene+Physics.swift */; };
+		8EE79361CA8E4854BFDCDE23 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C869A259F2AD4348A90A7983 /* GameScene.swift */; };
+		23C1C37FBCE8474CB00D7FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53A2AFC22F7498891BDCFDA /* ContentView.swift */; };
+		58605AA8037144DBB6A006B9 /* ShatterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF9A545D89445AA927588D /* ShatterApp.swift */; };
+		2653521625844AF0B6957B7E /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAF4AEDD01480394785E1F /* Block.swift */; };
+		4D9547B34CDE4B1DB40D5E08 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D759D7B763D4D4B871B8042 /* GameState.swift */; };
+		0BB7FC4AACA849C5A01B2D49 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1C3203CB9430BAAE00904 /* LevelData.swift */; };
+		35005163C51C4E8DA4BF3D0C /* ScoreRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23779FBCE3446FA9C760EA /* ScoreRecord.swift */; };
+		BE69C084EF51409D9B64536A /* ClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D9C1CCEAB940B68D6F9D82 /* ClearView.swift */; };
+		BDC793E868D5448287535949 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675EFAC7178A4C50B2D1D9E8 /* GameOverView.swift */; };
+		5D9F10ACCB054D729C5B2BA8 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB49FE14AE471FAD9A0CF2 /* GameView.swift */; };
+		AE9DE02A1C884FE7B7441C09 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF01F8361641B6B95952B5 /* HUDView.swift */; };
+		2B5A2FAEAC244F34A2AB78EA /* LevelSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F732E450D45569C88B859 /* LevelSelectView.swift */; };
+		23A5F3679307448FA8279CB0 /* PauseOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78EDFE6C1B4B39A07C681F /* PauseOverlayView.swift */; };
+		371331F4AF524D89ABF01603 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52917E86717141DB991E8C43 /* SettingsView.swift */; };
+		389EB15E4B934B47B13912CF /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43CA5DFDC93419181978580 /* TitleView.swift */; };
+		B49475CCDC0E4F6E9038C647 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C40754BB460088F8D58D /* AudioService.swift */; };
+		7D1E197737CC41ACAB4FD9DE /* LevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D657DB924402BBF264022 /* LevelLoader.swift */; };
+		0BC22B99D5C1464996F2C482 /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EF19CA969E4204BCE7E4DA /* ScoreService.swift */; };
+		B74F76EC8E494464955C5356 /* level_001.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C1EB214DF4429E953E95CA /* level_001.json */; };
+		D8D3886FAB0F4D1E9D8B322F /* level_002.json in Resources */ = {isa = PBXBuildFile; fileRef = 948515E9B3A14637AA81B8EC /* level_002.json */; };
+		7BF7AD1320B64E02981E9823 /* level_003.json in Resources */ = {isa = PBXBuildFile; fileRef = 079D25BB5C794D6482E0748A /* level_003.json */; };
+		C5CD60955F6F482EA0497A19 /* level_004.json in Resources */ = {isa = PBXBuildFile; fileRef = E3D657F752F6424481371E25 /* level_004.json */; };
+		7DAB70DE94904C578F25FA6C /* level_005.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AA75DC156CC4450BE90D85B /* level_005.json */; };
+		8A87C63172794EC5A3035553 /* level_006.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC29C65673B4D2180B4A256 /* level_006.json */; };
+		CD17744E5E044BDFB6E2B5FE /* level_007.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E1BABAD2CE418BA551AD73 /* level_007.json */; };
+		F42A9BD887DE43B8B7265C7F /* level_008.json in Resources */ = {isa = PBXBuildFile; fileRef = F15E1E087FE74CD3938B1E9F /* level_008.json */; };
+		8F90577518D3463D90EEF89E /* level_009.json in Resources */ = {isa = PBXBuildFile; fileRef = D1EEF8C145BB4B75AE581F74 /* level_009.json */; };
+		2DDC6B2F156A4134A6BA288B /* level_010.json in Resources */ = {isa = PBXBuildFile; fileRef = 04092452C1F24BD7A32416CB /* level_010.json */; };
+		B04508CCB2BE477991EA85B8 /* level_011.json in Resources */ = {isa = PBXBuildFile; fileRef = CCFB17506945417C8CFBB699 /* level_011.json */; };
+		B4D4022916DA4DD9A687AC2A /* level_012.json in Resources */ = {isa = PBXBuildFile; fileRef = A732B9E791824674A4CAD3F4 /* level_012.json */; };
+		F6D8D4C18E7B40D99C24DDA0 /* level_013.json in Resources */ = {isa = PBXBuildFile; fileRef = 04FD5FFB032142588304C3B5 /* level_013.json */; };
+		A7D70D21C60D4526905F46E4 /* level_014.json in Resources */ = {isa = PBXBuildFile; fileRef = 16E5714D8126402085F303D5 /* level_014.json */; };
+		96CB30B88EBE4289875787FE /* level_015.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DB362939FD5480E8A3D441F /* level_015.json */; };
+		A03E737CAAD8430597B2E531 /* level_016.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B816855D3894B548E8D04B6 /* level_016.json */; };
+		176B4EE7961749B0963E8B7B /* level_017.json in Resources */ = {isa = PBXBuildFile; fileRef = F579E38C85264F348F143020 /* level_017.json */; };
+		84ECDB3F534441C584DAB6FE /* level_018.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D571257923F491FB9BDCC1E /* level_018.json */; };
+		416FFEB163794190B4CB8457 /* level_019.json in Resources */ = {isa = PBXBuildFile; fileRef = BF8287F8A8A0431D8BE7DC6F /* level_019.json */; };
+		29CADC2A804A45479EC2A35F /* level_020.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C9211C1A0674C4E9F3C2285 /* level_020.json */; };
+		C375A114CA6742C0B7335589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0346C5C6394545CE82E152C0 /* Assets.xcassets */; };
+		AA000001AA0000AA0000AA01 /* ShatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001AA0000AA0000AA00 /* ShatterTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA000001AA0000AA0000AA00 /* ShatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShatterTests.swift; sourceTree = "<group>"; };
+		AA000002AA0000AA0000AA00 /* ShatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2632037247B040309ECE5532 /* Shatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5697B81D5F804290A0C04C82 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewModel.swift"; sourceTree = "<group>"; };
+		CAA009FFBBAD479F9CB257BB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel.swift"; sourceTree = "<group>"; };
+		22537E952FE54D4D9AA89248 /* GameScene+Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Input.swift"; sourceTree = "<group>"; };
+		D423CBE109D349EABA5CD7B9 /* GameScene+Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Physics.swift"; sourceTree = "<group>"; };
+		C869A259F2AD4348A90A7983 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene.swift"; sourceTree = "<group>"; };
+		A53A2AFC22F7498891BDCFDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		46AF9A545D89445AA927588D /* ShatterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShatterApp.swift"; sourceTree = "<group>"; };
+		36AAF4AEDD01480394785E1F /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Block.swift"; sourceTree = "<group>"; };
+		1D759D7B763D4D4B871B8042 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState.swift"; sourceTree = "<group>"; };
+		CBE1C3203CB9430BAAE00904 /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelData.swift"; sourceTree = "<group>"; };
+		0E23779FBCE3446FA9C760EA /* ScoreRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreRecord.swift"; sourceTree = "<group>"; };
+		78D9C1CCEAB940B68D6F9D82 /* ClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClearView.swift"; sourceTree = "<group>"; };
+		675EFAC7178A4C50B2D1D9E8 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameOverView.swift"; sourceTree = "<group>"; };
+		B3CB49FE14AE471FAD9A0CF2 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameView.swift"; sourceTree = "<group>"; };
+		DBAF01F8361641B6B95952B5 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HUDView.swift"; sourceTree = "<group>"; };
+		513F732E450D45569C88B859 /* LevelSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelSelectView.swift"; sourceTree = "<group>"; };
+		AC78EDFE6C1B4B39A07C681F /* PauseOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PauseOverlayView.swift"; sourceTree = "<group>"; };
+		52917E86717141DB991E8C43 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		C43CA5DFDC93419181978580 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleView.swift"; sourceTree = "<group>"; };
+		B331C40754BB460088F8D58D /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioService.swift"; sourceTree = "<group>"; };
+		F37D657DB924402BBF264022 /* LevelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelLoader.swift"; sourceTree = "<group>"; };
+		D9EF19CA969E4204BCE7E4DA /* ScoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreService.swift"; sourceTree = "<group>"; };
+		E9C1EB214DF4429E953E95CA /* level_001.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_001.json"; sourceTree = "<group>"; };
+		948515E9B3A14637AA81B8EC /* level_002.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_002.json"; sourceTree = "<group>"; };
+		079D25BB5C794D6482E0748A /* level_003.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_003.json"; sourceTree = "<group>"; };
+		E3D657F752F6424481371E25 /* level_004.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_004.json"; sourceTree = "<group>"; };
+		9AA75DC156CC4450BE90D85B /* level_005.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_005.json"; sourceTree = "<group>"; };
+		DDC29C65673B4D2180B4A256 /* level_006.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_006.json"; sourceTree = "<group>"; };
+		07E1BABAD2CE418BA551AD73 /* level_007.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_007.json"; sourceTree = "<group>"; };
+		F15E1E087FE74CD3938B1E9F /* level_008.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_008.json"; sourceTree = "<group>"; };
+		D1EEF8C145BB4B75AE581F74 /* level_009.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_009.json"; sourceTree = "<group>"; };
+		04092452C1F24BD7A32416CB /* level_010.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_010.json"; sourceTree = "<group>"; };
+		CCFB17506945417C8CFBB699 /* level_011.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_011.json"; sourceTree = "<group>"; };
+		A732B9E791824674A4CAD3F4 /* level_012.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_012.json"; sourceTree = "<group>"; };
+		04FD5FFB032142588304C3B5 /* level_013.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_013.json"; sourceTree = "<group>"; };
+		16E5714D8126402085F303D5 /* level_014.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_014.json"; sourceTree = "<group>"; };
+		6DB362939FD5480E8A3D441F /* level_015.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_015.json"; sourceTree = "<group>"; };
+		8B816855D3894B548E8D04B6 /* level_016.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_016.json"; sourceTree = "<group>"; };
+		F579E38C85264F348F143020 /* level_017.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_017.json"; sourceTree = "<group>"; };
+		4D571257923F491FB9BDCC1E /* level_018.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_018.json"; sourceTree = "<group>"; };
+		BF8287F8A8A0431D8BE7DC6F /* level_019.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_019.json"; sourceTree = "<group>"; };
+		7C9211C1A0674C4E9F3C2285 /* level_020.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "level_020.json"; sourceTree = "<group>"; };
+		0346C5C6394545CE82E152C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D572D445024B48079E470AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000003AA0000AA0000AA00 /* Frameworks (Tests) */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA000004AA0000AA0000AA00 /* ShatterTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA000001AA0000AA0000AA00 /* ShatterTests.swift */,
+			);
+			path = ShatterTests;
+			sourceTree = "<group>";
+		};
+		A7733933B6184AAD980E0ABD = {
+			isa = PBXGroup;
+			children = (
+				18598141875448C2B8C42DA3 /* Products */,
+				242664557FC44696972BC79C /* Shatter */,
+				AA000004AA0000AA0000AA00 /* ShatterTests */,
+			);
+			sourceTree = "<group>";
+		};
+		242664557FC44696972BC79C /* Shatter */ = {
+			isa = PBXGroup;
+			children = (
+				E60EB3B2BF5E4B49977F26BB /* App */,
+				C46D19DA3F664DC09022EEF9 /* Views */,
+				0FE73000100B4A50A9C7A27A /* Scenes */,
+				4F8F2EAF0A2D4B2384ECD53B /* ViewModels */,
+				2CBADFBB7879474B9BFA8033 /* Models */,
+				20E89ADD5FA14A2E8D89BCB9 /* Services */,
+				242076D5D33C4F209B4EF0A9 /* Resources */,
+				0346C5C6394545CE82E152C0 /* Assets.xcassets */,
+			);
+			path = Shatter;
+			sourceTree = "<group>";
+		};
+		18598141875448C2B8C42DA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2632037247B040309ECE5532 /* Shatter.app */,
+				AA000002AA0000AA0000AA00 /* ShatterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E60EB3B2BF5E4B49977F26BB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A53A2AFC22F7498891BDCFDA /* ContentView.swift */,
+				46AF9A545D89445AA927588D /* ShatterApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C46D19DA3F664DC09022EEF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78D9C1CCEAB940B68D6F9D82 /* ClearView.swift */,
+				675EFAC7178A4C50B2D1D9E8 /* GameOverView.swift */,
+				B3CB49FE14AE471FAD9A0CF2 /* GameView.swift */,
+				DBAF01F8361641B6B95952B5 /* HUDView.swift */,
+				513F732E450D45569C88B859 /* LevelSelectView.swift */,
+				AC78EDFE6C1B4B39A07C681F /* PauseOverlayView.swift */,
+				52917E86717141DB991E8C43 /* SettingsView.swift */,
+				C43CA5DFDC93419181978580 /* TitleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0FE73000100B4A50A9C7A27A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				22537E952FE54D4D9AA89248 /* GameScene+Input.swift */,
+				D423CBE109D349EABA5CD7B9 /* GameScene+Physics.swift */,
+				C869A259F2AD4348A90A7983 /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4F8F2EAF0A2D4B2384ECD53B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5697B81D5F804290A0C04C82 /* GameViewModel.swift */,
+				CAA009FFBBAD479F9CB257BB /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2CBADFBB7879474B9BFA8033 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36AAF4AEDD01480394785E1F /* Block.swift */,
+				1D759D7B763D4D4B871B8042 /* GameState.swift */,
+				CBE1C3203CB9430BAAE00904 /* LevelData.swift */,
+				0E23779FBCE3446FA9C760EA /* ScoreRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20E89ADD5FA14A2E8D89BCB9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B331C40754BB460088F8D58D /* AudioService.swift */,
+				F37D657DB924402BBF264022 /* LevelLoader.swift */,
+				D9EF19CA969E4204BCE7E4DA /* ScoreService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		242076D5D33C4F209B4EF0A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42B1F8C90165411D82CE3263 /* Levels */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		42B1F8C90165411D82CE3263 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				E9C1EB214DF4429E953E95CA /* level_001.json */,
+				948515E9B3A14637AA81B8EC /* level_002.json */,
+				079D25BB5C794D6482E0748A /* level_003.json */,
+				E3D657F752F6424481371E25 /* level_004.json */,
+				9AA75DC156CC4450BE90D85B /* level_005.json */,
+				DDC29C65673B4D2180B4A256 /* level_006.json */,
+				07E1BABAD2CE418BA551AD73 /* level_007.json */,
+				F15E1E087FE74CD3938B1E9F /* level_008.json */,
+				D1EEF8C145BB4B75AE581F74 /* level_009.json */,
+				04092452C1F24BD7A32416CB /* level_010.json */,
+				CCFB17506945417C8CFBB699 /* level_011.json */,
+				A732B9E791824674A4CAD3F4 /* level_012.json */,
+				04FD5FFB032142588304C3B5 /* level_013.json */,
+				16E5714D8126402085F303D5 /* level_014.json */,
+				6DB362939FD5480E8A3D441F /* level_015.json */,
+				8B816855D3894B548E8D04B6 /* level_016.json */,
+				F579E38C85264F348F143020 /* level_017.json */,
+				4D571257923F491FB9BDCC1E /* level_018.json */,
+				BF8287F8A8A0431D8BE7DC6F /* level_019.json */,
+				7C9211C1A0674C4E9F3C2285 /* level_020.json */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		227C0553DBC94E72B25B67D4 /* Shatter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 901CA8E7B3B44CF695F4B7B2 /* Build configuration list for PBXNativeTarget "Shatter" */;
+			buildPhases = (
+				F250302EE01F444BAC378E24 /* Sources */,
+				B869008DE1B94FDF96A04D2C /* Resources */,
+				D572D445024B48079E470AE3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shatter;
+			productName = Shatter;
+			productReference = 2632037247B040309ECE5532 /* Shatter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA000005AA0000AA0000AA00 /* ShatterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000009AA0000AA0000AA00 /* Build configuration list for PBXNativeTarget "ShatterTests" */;
+			buildPhases = (
+				AA000006AA0000AA0000AA00 /* Sources */,
+				AA000003AA0000AA0000AA00 /* Frameworks (Tests) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA000008AA0000AA0000AA00 /* PBXTargetDependency */,
+			);
+			name = ShatterTests;
+			productName = ShatterTests;
+			productReference = AA000002AA0000AA0000AA00 /* ShatterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					227C0553DBC94E72B25B67D4 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AA000005AA0000AA0000AA00 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 227C0553DBC94E72B25B67D4;
+					};
+				};
+			};
+			buildConfigurationList = 069A25BD5B984A0C8C0186EC /* Build configuration list for PBXProject "Shatter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ja,
+				Base,
+			);
+			mainGroup = A7733933B6184AAD980E0ABD;
+			productRefGroup = 18598141875448C2B8C42DA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				227C0553DBC94E72B25B67D4 /* Shatter */,
+				AA000005AA0000AA0000AA00 /* ShatterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B869008DE1B94FDF96A04D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B74F76EC8E494464955C5356 /* level_001.json in Resources */,
+				D8D3886FAB0F4D1E9D8B322F /* level_002.json in Resources */,
+				7BF7AD1320B64E02981E9823 /* level_003.json in Resources */,
+				C5CD60955F6F482EA0497A19 /* level_004.json in Resources */,
+				7DAB70DE94904C578F25FA6C /* level_005.json in Resources */,
+				8A87C63172794EC5A3035553 /* level_006.json in Resources */,
+				CD17744E5E044BDFB6E2B5FE /* level_007.json in Resources */,
+				F42A9BD887DE43B8B7265C7F /* level_008.json in Resources */,
+				8F90577518D3463D90EEF89E /* level_009.json in Resources */,
+				2DDC6B2F156A4134A6BA288B /* level_010.json in Resources */,
+				B04508CCB2BE477991EA85B8 /* level_011.json in Resources */,
+				B4D4022916DA4DD9A687AC2A /* level_012.json in Resources */,
+				F6D8D4C18E7B40D99C24DDA0 /* level_013.json in Resources */,
+				A7D70D21C60D4526905F46E4 /* level_014.json in Resources */,
+				96CB30B88EBE4289875787FE /* level_015.json in Resources */,
+				A03E737CAAD8430597B2E531 /* level_016.json in Resources */,
+				176B4EE7961749B0963E8B7B /* level_017.json in Resources */,
+				84ECDB3F534441C584DAB6FE /* level_018.json in Resources */,
+				416FFEB163794190B4CB8457 /* level_019.json in Resources */,
+				29CADC2A804A45479EC2A35F /* level_020.json in Resources */,
+				C375A114CA6742C0B7335589 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F250302EE01F444BAC378E24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85DD23EEB33A4C52BCE588E1 /* GameViewModel.swift in Sources */,
+				A5EB1049DD28421EBA224635 /* SettingsViewModel.swift in Sources */,
+				3540E728B275412FBF9C82CE /* GameScene+Input.swift in Sources */,
+				D0DA50BAD4CB410D8B8E447C /* GameScene+Physics.swift in Sources */,
+				8EE79361CA8E4854BFDCDE23 /* GameScene.swift in Sources */,
+				23C1C37FBCE8474CB00D7FC0 /* ContentView.swift in Sources */,
+				58605AA8037144DBB6A006B9 /* ShatterApp.swift in Sources */,
+				2653521625844AF0B6957B7E /* Block.swift in Sources */,
+				4D9547B34CDE4B1DB40D5E08 /* GameState.swift in Sources */,
+				0BB7FC4AACA849C5A01B2D49 /* LevelData.swift in Sources */,
+				35005163C51C4E8DA4BF3D0C /* ScoreRecord.swift in Sources */,
+				BE69C084EF51409D9B64536A /* ClearView.swift in Sources */,
+				BDC793E868D5448287535949 /* GameOverView.swift in Sources */,
+				5D9F10ACCB054D729C5B2BA8 /* GameView.swift in Sources */,
+				AE9DE02A1C884FE7B7441C09 /* HUDView.swift in Sources */,
+				2B5A2FAEAC244F34A2AB78EA /* LevelSelectView.swift in Sources */,
+				23A5F3679307448FA8279CB0 /* PauseOverlayView.swift in Sources */,
+				371331F4AF524D89ABF01603 /* SettingsView.swift in Sources */,
+				389EB15E4B934B47B13912CF /* TitleView.swift in Sources */,
+				B49475CCDC0E4F6E9038C647 /* AudioService.swift in Sources */,
+				7D1E197737CC41ACAB4FD9DE /* LevelLoader.swift in Sources */,
+				0BC22B99D5C1464996F2C482 /* ScoreService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000006AA0000AA0000AA00 /* Sources (Tests) */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000001AA0000AA0000AA01 /* ShatterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		AA000007AA0000AA0000AA00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 227C0553DBC94E72B25B67D4;
+			remoteInfo = Shatter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		AA000008AA0000AA0000AA00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 227C0553DBC94E72B25B67D4 /* Shatter */;
+			targetProxy = AA000007AA0000AA0000AA00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FB05118D5B7C4DA892E2097F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7099DA4BE6A3404FA6778225 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14ACE5C92DE94EB48EF30DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shatter.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB3515327B564FD58E184316 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shatter.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		069A25BD5B984A0C8C0186EC /* Build configuration list for PBXProject "Shatter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB05118D5B7C4DA892E2097F /* Debug */,
+				7099DA4BE6A3404FA6778225 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		901CA8E7B3B44CF695F4B7B2 /* Build configuration list for PBXNativeTarget "Shatter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14ACE5C92DE94EB48EF30DB5 /* Debug */,
+				FB3515327B564FD58E184316 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00000AAA0000AA0000AA00 /* Debug (Tests) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shatter.app.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shatter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shatter";
+			};
+			name = Debug;
+		};
+		AA00000BAA0000AA0000AA00 /* Release (Tests) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shatter.app.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shatter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shatter";
+			};
+			name = Release;
+		};
+/* End XCConfigurationList section */
+		AA000009AA0000AA0000AA00 /* Build configuration list for PBXNativeTarget "ShatterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000AAA0000AA0000AA00 /* Debug (Tests) */,
+				AA00000BAA0000AA0000AA00 /* Release (Tests) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

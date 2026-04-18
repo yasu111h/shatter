@@ -6,36 +6,50 @@ struct HUDView: View {
     let onPause: () -> Void
 
     var body: some View {
-        HStack {
-            // 残機
-            HStack(spacing: 4) {
+        HStack(alignment: .center) {
+            // スコア
+            VStack(alignment: .leading, spacing: 2) {
+                Text("SCORE")
+                    .font(.custom("Courier", size: 10))
+                    .foregroundColor(Color(hex: "#00E5FF").opacity(0.6))
+                    .tracking(2)
+                Text("\(score)")
+                    .font(.custom("Courier-Bold", size: 22))
+                    .foregroundColor(Color(hex: "#00E5FF"))
+                    .monospacedDigit()
+            }
+
+            Spacer()
+
+            // 残機（ハートアイコン）
+            HStack(spacing: 6) {
                 ForEach(0..<3) { i in
-                    Image(systemName: i < lives ? "circle.fill" : "circle")
-                        .foregroundColor(Color(hex: "#00E5FF"))
-                        .font(.system(size: 10))
+                    Image(systemName: i < lives ? "heart.fill" : "heart")
+                        .font(.system(size: 16))
+                        .foregroundColor(i < lives ? Color(hex: "#FF3B30") : Color.gray.opacity(0.3))
                 }
             }
-            .padding(.leading, 16)
 
             Spacer()
 
-            // スコア
-            Text(String(format: "%06d", score))
-                .font(.custom("Courier-Bold", size: 16))
-                .foregroundColor(.white)
-                .tracking(2)
-
-            Spacer()
-
-            // ポーズ
+            // ポーズボタン
             Button(action: onPause) {
                 Image(systemName: "pause.fill")
-                    .foregroundColor(Color(hex: "#00E5FF"))
                     .font(.system(size: 18))
+                    .foregroundColor(Color(hex: "#00E5FF"))
+                    .frame(width: 40, height: 40)
+                    .background(Color(hex: "#1A1A1A"))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(hex: "#00E5FF").opacity(0.4), lineWidth: 1)
+                    )
             }
-            .padding(.trailing, 16)
         }
-        .frame(maxWidth: .infinity)
-        .background(Color.black.opacity(0.6))
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(
+            Color(hex: "#0A0A0A").opacity(0.9)
+        )
     }
 }

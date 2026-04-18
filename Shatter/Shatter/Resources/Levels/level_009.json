@@ -1,16 +1,1 @@
-{
-  "levelNumber": 9,
-  "gridRows": 7,
-  "gridColumns": 8,
-  "blockLayout": [
-    [1,0,1,0,0,1,0,1],
-    [0,1,0,1,1,0,1,0],
-    [1,0,2,0,0,2,0,1],
-    [0,1,0,2,2,0,1,0],
-    [1,0,2,0,0,2,0,1],
-    [0,1,0,1,1,0,1,0],
-    [1,0,1,0,0,1,0,1]
-  ],
-  "ballSpeedMultiplier": 1.25,
-  "paddleWidthMultiplier": 0.9
-}
+{"id":9,"name":"STAGE 09","blocks":[]}

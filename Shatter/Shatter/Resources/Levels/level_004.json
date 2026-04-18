@@ -1,15 +1,1 @@
-{
-  "levelNumber": 4,
-  "gridRows": 6,
-  "gridColumns": 8,
-  "blockLayout": [
-    [0,0,1,1,1,1,0,0],
-    [0,1,1,1,1,1,1,0],
-    [1,1,2,1,1,2,1,1],
-    [1,1,2,1,1,2,1,1],
-    [0,1,1,1,1,1,1,0],
-    [0,0,1,1,1,1,0,0]
-  ],
-  "ballSpeedMultiplier": 1.1,
-  "paddleWidthMultiplier": 0.95
-}
+{"id":4,"name":"STAGE 04","blocks":[]}

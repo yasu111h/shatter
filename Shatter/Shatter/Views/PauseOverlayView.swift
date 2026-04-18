@@ -7,29 +7,53 @@ struct PauseOverlayView: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.7).ignoresSafeArea()
-            VStack(spacing: 20) {
+            Color.black.opacity(0.75).ignoresSafeArea()
+
+            VStack(spacing: 0) {
+                // タイトル
                 Text("PAUSED")
-                    .font(.custom("Courier-Bold", size: 28))
+                    .font(.custom("Courier-Bold", size: 32))
                     .foregroundColor(Color(hex: "#00E5FF"))
                     .tracking(6)
+                    .padding(.bottom, 40)
 
-                menuButton("RESUME", action: onResume)
-                menuButton("RESTART", action: onRestart)
-                menuButton("EXIT", action: onExit)
+                // ボタン群
+                VStack(spacing: 14) {
+                    PauseButton(title: "RESUME", icon: "play.fill", isPrimary: true, action: onResume)
+                    PauseButton(title: "RESTART", icon: "arrow.counterclockwise", isPrimary: false, action: onRestart)
+                    PauseButton(title: "EXIT", icon: "xmark", isPrimary: false, action: onExit)
+                }
+                .frame(width: 240)
             }
         }
     }
+}
 
-    func menuButton(_ title: String, action: @escaping () -> Void) -> some View {
+struct PauseButton: View {
+    let title: String
+    let icon: String
+    let isPrimary: Bool
+    let action: () -> Void
+
+    var body: some View {
         Button(action: action) {
-            Text(title)
-                .font(.custom("Courier", size: 16))
-                .foregroundColor(.white)
-                .tracking(3)
-                .frame(width: 180, height: 44)
-                .overlay(RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color(hex: "#00E5FF").opacity(0.5), lineWidth: 1))
+            HStack(spacing: 10) {
+                Image(systemName: icon)
+                    .font(.system(size: 14))
+                Text(title)
+                    .font(.custom("Courier-Bold", size: 16))
+                    .tracking(3)
+            }
+            .foregroundColor(isPrimary ? Color(hex: "#0A0A0A") : Color(hex: "#00E5FF"))
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+            .background(isPrimary ? Color(hex: "#00E5FF") : Color.clear)
+            .overlay(
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color(hex: "#00E5FF"), lineWidth: isPrimary ? 0 : 1.5)
+            )
+            .cornerRadius(6)
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }

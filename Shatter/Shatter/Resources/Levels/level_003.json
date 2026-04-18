@@ -1,14 +1,1 @@
-{
-  "levelNumber": 3,
-  "gridRows": 5,
-  "gridColumns": 8,
-  "blockLayout": [
-    [1,1,1,1,1,1,1,1],
-    [1,2,2,2,2,2,2,1],
-    [1,2,1,1,1,1,2,1],
-    [1,2,2,2,2,2,2,1],
-    [1,1,1,1,1,1,1,1]
-  ],
-  "ballSpeedMultiplier": 1.1,
-  "paddleWidthMultiplier": 1.0
-}
+{"id":3,"name":"STAGE 03","blocks":[{"row":0,"col":0,"type":2},{"row":0,"col":1,"type":2},{"row":0,"col":2,"type":2},{"row":0,"col":3,"type":2},{"row":0,"col":4,"type":2},{"row":0,"col":5,"type":2},{"row":0,"col":6,"type":2},{"row":0,"col":7,"type":2},{"row":1,"col":0,"type":1},{"row":1,"col":1,"type":1},{"row":1,"col":2,"type":1},{"row":1,"col":3,"type":1},{"row":1,"col":4,"type":1},{"row":1,"col":5,"type":1},{"row":1,"col":6,"type":1},{"row":1,"col":7,"type":1}]}

@@ -2,15 +2,18 @@ import Foundation
 import Combine
 
 class SettingsViewModel: ObservableObject {
-    @Published var isBGMEnabled: Bool {
-        didSet { UserDefaults.standard.set(isBGMEnabled, forKey: "bgm_enabled") }
+    private let audio = AudioService.shared
+
+    @Published var bgmEnabled: Bool {
+        didSet { audio.bgmEnabled = bgmEnabled }
     }
-    @Published var isSEEnabled: Bool {
-        didSet { UserDefaults.standard.set(isSEEnabled, forKey: "se_enabled") }
+
+    @Published var seEnabled: Bool {
+        didSet { audio.seEnabled = seEnabled }
     }
 
     init() {
-        self.isBGMEnabled = UserDefaults.standard.object(forKey: "bgm_enabled") as? Bool ?? true
-        self.isSEEnabled = UserDefaults.standard.object(forKey: "se_enabled") as? Bool ?? true
+        self.bgmEnabled = AudioService.shared.bgmEnabled
+        self.seEnabled = AudioService.shared.seEnabled
     }
 }

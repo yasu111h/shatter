@@ -1,107 +1,137 @@
 import SwiftUI
 
 struct LevelSelectView: View {
-    let onSelect: (Int) -> Void
-    let onBack: () -> Void
+    @Binding var showLevelSelect: Bool
+    @ObservedObject private var scoreService = ScoreService.shared
+    @State private var selectedLevel: Int? = nil
+    @State private var showGame = false
 
-    @State private var progresses = ScoreService.shared.progresses
-
-    private let columns = Array(repeating: GridItem(.flexible(), spacing: 12), count: 4)
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
         ZStack {
             Color(hex: "#0A0A0A").ignoresSafeArea()
+
             VStack(spacing: 0) {
                 // ヘッダー
                 HStack {
-                    Button(action: onBack) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(Color(hex: "#00E5FF"))
-                            .font(.system(size: 18))
+                    Button(action: { showLevelSelect = false }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 14, weight: .bold))
+                            Text("BACK")
+                                .font(.custom("Courier-Bold", size: 14))
+                        }
+                        .foregroundColor(Color(hex: "#00E5FF"))
                     }
                     Spacer()
                     Text("SELECT STAGE")
-                        .font(.custom("Courier-Bold", size: 16))
-                        .foregroundColor(.white)
-                        .tracking(4)
+                        .font(.custom("Courier-Bold", size: 18))
+                        .foregroundColor(Color(hex: "#00E5FF"))
+                        .tracking(3)
                     Spacer()
-                    Color.clear.frame(width: 24)
+                    // バランス用
+                    Color.clear.frame(width: 60)
                 }
                 .padding(.horizontal, 20)
-                .padding(.vertical, 16)
+                .padding(.top, 20)
+                .padding(.bottom, 24)
 
-                Divider().background(Color(hex: "#00E5FF").opacity(0.2))
-
+                // ステージグリッド
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 12) {
-                        ForEach(1...20, id: \.self) { levelId in
-                            levelCell(levelId: levelId)
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(1...20, id: \.self) { level in
+                            let progress = scoreService.progress(for: level)
+                            LevelCell(
+                                levelId: level,
+                                isUnlocked: progress.isUnlocked,
+                                isCleared: progress.isCleared,
+                                stars: progress.bestStars
+                            ) {
+                                if progress.isUnlocked {
+                                    selectedLevel = level
+                                    showGame = true
+                                }
+                            }
                         }
                     }
-                    .padding(20)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 40)
                 }
             }
         }
-        .onAppear {
-            progresses = ScoreService.shared.progresses
+        .fullScreenCover(isPresented: $showGame) {
+            if let level = selectedLevel {
+                GameView(levelId: level, onExit: {
+                    showGame = false
+                })
+            }
         }
     }
+}
 
-    @ViewBuilder
-    func levelCell(levelId: Int) -> some View {
-        let unlocked = ScoreService.shared.isUnlocked(levelId)
-        let stars = ScoreService.shared.bestStars(for: levelId)
+struct LevelCell: View {
+    let levelId: Int
+    let isUnlocked: Bool
+    let isCleared: Bool
+    let stars: Int
+    let action: () -> Void
 
-        Button(action: {
-            if unlocked { onSelect(levelId) }
-        }) {
-            ZStack {
-                if unlocked {
-                    // 解放済み: 塗りつぶし背景
-                    RoundedRectangle(cornerRadius: 6)
-                        .fill(Color.white.opacity(0.08))
+    @State private var isPressed = false
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(isUnlocked ? Color(hex: "#1A1A1A") : Color(hex: "#111111"))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color(hex: "#00E5FF").opacity(0.5), lineWidth: 1)
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(
+                                    isUnlocked ? Color(hex: "#00E5FF").opacity(0.6) : Color(hex: "#333333"),
+                                    lineWidth: 1
+                                )
                         )
-                } else {
-                    // ロック済み: 赤みがかった枠のみ
-                    RoundedRectangle(cornerRadius: 6)
-                        .fill(Color.white.opacity(0.02))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color(hex: "#FF3B3B").opacity(0.6), lineWidth: 1.5)
-                        )
-                }
 
-                VStack(spacing: 4) {
-                    if unlocked {
-                        Text(String(format: "%02d", levelId))
-                            .font(.custom("Courier-Bold", size: 22))
-                            .foregroundColor(.white)
+                    if isUnlocked {
+                        VStack(spacing: 4) {
+                            Text(String(format: "%02d", levelId))
+                                .font(.custom("Courier-Bold", size: 24))
+                                .foregroundColor(Color(hex: "#00E5FF"))
 
-                        // スター表示
-                        HStack(spacing: 2) {
-                            ForEach(1...3, id: \.self) { i in
-                                Image(systemName: i <= stars ? "star.fill" : "star")
-                                    .font(.system(size: 7))
-                                    .foregroundColor(i <= stars ? .yellow : Color.white.opacity(0.2))
+                            // スター表示
+                            if isCleared {
+                                HStack(spacing: 2) {
+                                    ForEach(1...3, id: \.self) { i in
+                                        Image(systemName: i <= stars ? "star.fill" : "star")
+                                            .font(.system(size: 10))
+                                            .foregroundColor(i <= stars ? Color(hex: "#FFD700") : Color.gray.opacity(0.4))
+                                    }
+                                }
                             }
                         }
                     } else {
-                        // ロック済みはアイコン + ステージ番号（暗め）
                         Image(systemName: "lock.fill")
-                            .font(.system(size: 14))
-                            .foregroundColor(Color(hex: "#FF3B3B").opacity(0.8))
-
-                        Text(String(format: "%02d", levelId))
-                            .font(.custom("Courier", size: 14))
-                            .foregroundColor(Color.white.opacity(0.25))
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(hex: "#333333"))
                     }
                 }
-                .padding(.vertical, 12)
+                .frame(height: 80)
+                .scaleEffect(isPressed ? 0.94 : 1.0)
             }
         }
-        .disabled(!unlocked)
+        .buttonStyle(PlainButtonStyle())
+        .disabled(!isUnlocked)
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0)
+                .onChanged { _ in
+                    if isUnlocked {
+                        withAnimation(.easeInOut(duration: 0.08)) { isPressed = true }
+                    }
+                }
+                .onEnded { _ in
+                    withAnimation(.easeInOut(duration: 0.1)) { isPressed = false }
+                }
+        )
     }
 }

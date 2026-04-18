@@ -1,0 +1,13 @@
+{
+  "levelNumber": 1,
+  "gridRows": 4,
+  "gridColumns": 8,
+  "blockLayout": [
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [0,1,1,1,1,1,1,0]
+  ],
+  "ballSpeedMultiplier": 1.0,
+  "paddleWidthMultiplier": 1.0
+}

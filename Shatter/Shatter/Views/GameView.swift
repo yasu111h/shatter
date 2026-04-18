@@ -99,11 +99,11 @@ struct GameView: View {
                     .transition(.opacity)
                 }
             }
+            .onAppear {
+                viewModel.setupScene(levelId: levelId, size: sceneSize(in: geo))
+            }
+            .animation(.easeInOut(duration: 0.3), value: viewModel.gameState.phase)
         }
-        .onAppear {
-            viewModel.setupScene(levelId: levelId, size: sceneSize(in: geo))
-        }
-        .animation(.easeInOut(duration: 0.3), value: viewModel.gameState.phase)
     }
 
     func sceneSize(in geometry: GeometryProxy) -> CGSize {
